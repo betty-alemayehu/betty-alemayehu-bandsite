@@ -1,0 +1,31 @@
+@use "./fonts" as *;
+
+//Fonts
+$primary-black: #323232;
+$silver: #afafaf;
+$white: #ffffff;
+$dark-black: #000000;
+$mercury: #e1e1e1;
+$alabaster: #fafafa;
+
+// Font variables
+$font-primary: "Avenir Next", sans-serif;
+$font-demi: "Avenir Next Demi", sans-serif;
+$font-bold: "Avenir Next Bold", sans-serif;
+
+/* Spacing */
+$spacing-unit: 8px;
+
+/* Font Sizes */
+$font-size-page-header-desktop: 60px;
+$font-size-section-header-desktop: 36px;
+$font-size-subheader-desktop: 24px;
+$font-size-body-desktop: 14px;
+$font-size-footer-desktop: 12px;
+
+// /* Line Heights */
+// $line-height-page-header: 68px;
+// $line-height-section-header: 44px;
+// $line-height-subheader: 32px;
+// $line-height-body: 22px;
+// $line-height-footer: 20px;

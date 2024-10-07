@@ -1,0 +1,129 @@
+@use "./fonts" as *;
+@use "./variables" as *;
+
+// Mixin for mobile (767px and less)
+@mixin mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+// Mixin for tablet (768px to 1279px)
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 1279px) {
+    @content;
+  }
+}
+
+// Mixin for desktop (1280px and greater)
+@mixin desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin largeDevice {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+// Type Kit Rules: Nav bar text styling
+@mixin nav-barPage {
+  font-size: 1.25rem;
+  line-height: 2rem;
+
+  @include tablet {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
+
+  @include desktop {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
+}
+
+// Type Kit Rules
+
+//h1 page header
+@mixin pageHeader {
+  font-size: 1.75rem;
+  line-height: 2rem;
+  font-family: $font-demi;
+
+  @include largeDevice {
+    font-size: 3.75rem;
+    line-height: 2.75rem;
+  }
+}
+
+//h2 section headers
+@mixin sectionHeader {
+  font-size: 1.75rem;
+  line-height: 2rem;
+  font-family: $font-demi;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+
+  @include largeDevice {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    padding-top: 3rem;
+    padding-bottom: 2.25rem;
+  }
+}
+
+//h3 subheaders
+@mixin subHeader {
+  font-size: 1.25rem;
+  line-height: 2rem;
+  font-family: $font-demi;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+
+  @include largeDevice {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 2.25rem;
+  }
+}
+
+//body copy in p tags
+@mixin bodyCopy {
+  font-size: 1.05rem;
+  line-height: 1.5rem;
+  font-family: $font-primary;
+  padding-bottom: 2rem;
+
+  @include largeDevice {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+//footer copy in p tags
+@mixin footerCopy {
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  font-family: $font-primary;
+  padding-bottom: 1rem;
+
+  @include largeDevice {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+//h4 Labels & Buttons
+@mixin labelsAndButtons {
+  font-size: 0.625rem;
+  line-height: 1.25rem;
+  font-family: $font-demi;
+
+  @include largeDevice {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+  }
+}

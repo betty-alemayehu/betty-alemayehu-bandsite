@@ -1,0 +1,46 @@
+@use "./partials/biography" as *;
+@use "./partials/fonts" as *;
+@use "./partials/footer" as *;
+@use "./partials/gallery" as *;
+@use "./partials/hero" as *;
+@use "./partials/mixins" as *;
+@use "./partials/nav-bar" as *;
+@use "./partials/variables" as *;
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-primary;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: inherit;
+}
+
+h1 {
+  @include pageHeader;
+}
+
+h2 {
+  @include sectionHeader;
+}
+
+h3 {
+  @include subHeader;
+}
+
+h4 {
+  @include labelsAndButtons;
+}
+
+body p {
+  @include bodyCopy;
+}
+
+footer p {
+  @include footerCopy;
+}
