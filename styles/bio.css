@@ -18,7 +18,6 @@
   font-style: normal;
 }
 /* Spacing */
-/* Font Sizes */
 .cover {
   position: relative;
   width: 100%;
@@ -371,7 +370,7 @@
   outline: none;
 }
 
-/* Global Reset */
+/* Global Reset and Universal Rules */
 * {
   margin: 0;
   padding: 0;

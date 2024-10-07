@@ -1,21 +1,21 @@
 @use "./fonts" as *;
 @use "./variables" as *;
 
-// Mixin for mobile (767px and less)
+// Mixin for mobile (<767px)
 @mixin mobile {
   @media (max-width: 767px) {
     @content;
   }
 }
 
-// Mixin for tablet (768px to 1279px)
+// Mixin for tablet (>768px and <1279px)
 @mixin tablet {
   @media (min-width: 768px) and (max-width: 1279px) {
     @content;
   }
 }
 
-// Mixin for desktop (1280px and greater)
+// Mixin for desktop (>1280px)
 @mixin desktop {
   @media (min-width: 1280px) {
     @content;
@@ -28,7 +28,7 @@
   }
 }
 
-// Type Kit Rules: Nav bar text styling
+// Nav bar text styling
 @mixin nav-barPage {
   font-size: 1.25rem;
   line-height: 2rem;
