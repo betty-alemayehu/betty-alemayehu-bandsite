@@ -19,7 +19,7 @@
     padding: 0 $spacing-unit * 10;
     padding-bottom: $spacing-unit * 10;
   }
-
+  //&__images
   .gallery__images {
     display: flex;
     flex-direction: column;
@@ -32,7 +32,7 @@
       gap: $spacing-unit * 2;
     }
   }
-
+  //nest &__image
   .gallery__image {
     width: 100%;
     max-width: 100%;
