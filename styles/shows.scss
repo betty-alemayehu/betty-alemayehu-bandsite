@@ -1,0 +1,40 @@
+@use "./partials/biography" as *;
+@use "./partials/fonts" as *;
+@use "./partials/footer" as *;
+@use "./partials/gallery" as *;
+@use "./partials/hero" as *;
+@use "./partials/mixins" as *;
+@use "./partials/nav-bar" as *;
+@use "./partials/variables" as *;
+
+// #showContainer {
+//  display: flex;
+//  flex-direction: column;
+// }
+.show-item {
+  padding: 10px;
+  // margin-bottom: 10px;
+  border-bottom: 1px solid $mercury;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $alabaster; // Alabaster color for hover state
+  }
+
+  &.selected {
+    background-color: $mercury; // Mercury color for selected state
+  }
+
+  button {
+    background-color: $primary-black;
+    color: $white;
+    text-transform: uppercase;
+    padding: $spacing-unit ($spacing-unit * 2);
+    border-radius: calc($spacing-unit/2);
+  }
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+}

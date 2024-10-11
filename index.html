@@ -27,10 +27,10 @@
         <div class="nav-bar__pages">
           <div class="nav-bar__page">
             <div class="nav-bar__page--active">
-              <a class="page__label" href="index.html">Biography</a>
+              <a class="page__label" href="/index.html">Biography</a>
             </div>
             <div class="nav-bar__page--inactive">
-              <a class="page__label" href="#">Shows</a>
+              <a class="page__label" href="./pages/shows.html">Shows</a>
             </div>
           </div>
         </div>
@@ -143,34 +143,35 @@
       </div>
     </div>
     <!-- Join the Conversation/Comment Section -->
-    <h2>Join the Conversation</h2>
-
-    <div class="comment-section">
-      <!-- Comment Form -->
-
-      <div class="comment-section__form">
-        <div class="comment-section__icon">
-          <img src="" alt="current user icon" />
-        </div>
-        <label for="name">NAME</label>
-        <input type="text" id="name" placeholder="Enter your name" />
-
-        <label for="comment">COMMENT</label>
-        <textarea
-          id="comment"
-          rows="5"
-          placeholder="Add a new comment"
-        ></textarea>
-
-        <button onclick="addComment()">Comment</button>
+    <div class="comments">
+      <div class="comments__heading">
+        <h2>Join the Conversation</h2>
       </div>
-
-      <!-- Comments List -->
-      <div class="comments-list" id="commentsList">
-        <!-- Comments submitted will appear here -->
+      <div class="comments__form">
+        <form id="form">
+          <!-- Comment Form -->
+          <div class="form__name">
+            <label for="name">NAME</label>
+            <input type="text" id="name" placeholder="Enter your name" />
+          </div>
+          <div class="form__comment">
+            <label for="comment">COMMENT</label>
+            <textarea
+              id="comment"
+              rows="5"
+              placeholder="Add a new comment"
+            ></textarea>
+          </div>
+          <div class="form__button">
+            <button type="submit" id="submit">Comment</button>
+          </div>
+        </form>
+        <!-- Comments Array -->
+        <div class="form__array" id="formArray">
+          <!-- Comments submitted will appear here -->
+        </div>
       </div>
     </div>
-
     <!-- Footer -->
     <footer class="footer">
       <div class="footer__contact">
@@ -244,6 +245,6 @@
         </p>
       </div>
     </footer>
-    <script src="/script.js" defer></script>
+    <script src="./scripts/index-page.js" defer></script>
   </body>
 </html>
