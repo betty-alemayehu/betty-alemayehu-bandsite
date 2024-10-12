@@ -62,30 +62,34 @@ function displaySubmissions() {
 
   // Loop through the comments array and create HTML elements for each comment
   submissions.forEach((submission) => {
-    // Create the comment container div
-    const commentDiv = document.createElement("div");
-    commentDiv.classList.add("comment-item");
-
-    // Create the name element
-    const nameEl = document.createElement("h4");
-    nameEl.textContent = submission.name;
-
-    // Create the date element
-    const dateEl = document.createElement("span");
-    dateEl.textContent = submission.date;
-
-    // Create the comment text element
-    const commentTextEl = document.createElement("p");
-    commentTextEl.textContent = submission.comment;
-
-    // Append the elements to the comment container div
-    commentDiv.appendChild(nameEl);
-    commentDiv.appendChild(dateEl);
-    commentDiv.appendChild(commentTextEl);
-
-    // Append the comment div to the formArray div
-    formArray.appendChild(commentDiv);
+    createComment(submission);
   });
+}
+
+function createComment(comment) {
+  // Create the comment container div
+  const commentDiv = document.createElement("div");
+  commentDiv.classList.add("comment-item");
+
+  // Create the name element
+  const nameEl = document.createElement("h4");
+  nameEl.textContent = comment.name;
+
+  // Create the date element
+  const dateEl = document.createElement("span");
+  dateEl.textContent = comment.date;
+
+  // Create the comment text element
+  const commentTextEl = document.createElement("p");
+  commentTextEl.textContent = comment.comment;
+
+  // Append the elements to the comment container div
+  commentDiv.appendChild(nameEl);
+  commentDiv.appendChild(dateEl);
+  commentDiv.appendChild(commentTextEl);
+
+  // Append the comment div to the formArray div
+  formArray.appendChild(commentDiv);
 }
 
 // displays comments even if no submissions are made via form

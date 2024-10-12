@@ -47,17 +47,17 @@ function displayShows() {
     dateEl.textContent = `Date: ${show.date}`;
     showDiv.appendChild(dateEl);
 
-    // Create and append the venue element
+    // venue
     const venueEl = document.createElement("p");
     venueEl.textContent = `Venue: ${show.venue}`;
     showDiv.appendChild(venueEl);
 
-    // Create and append the location element
+    // location
     const locationEl = document.createElement("p");
     locationEl.textContent = `Location: ${show.location}`;
     showDiv.appendChild(locationEl);
 
-    // Create and append the button element
+    // button
     const buttonEl = document.createElement("button");
     buttonEl.textContent = "Buy Tickets";
     showDiv.appendChild(buttonEl);
@@ -71,12 +71,12 @@ function displayShows() {
       if (selectedShow) {
         selectedShow.classList.remove("selected");
       }
-      // Add selected class to the clicked show
+      // Add selected class to the clicked show (refer to shows.scss for application)
       showDiv.classList.add("selected");
-      selectedShow = showDiv; // Update the selected show reference
+      selectedShow = showDiv;
     });
   });
 }
 
-// Call the displayShows function when the page loads
+// displayShows function when the page loads
 window.addEventListener("load", displayShows);
