@@ -8,4 +8,7 @@ Sprint 1 Learnings:
 
 Sprint 2 Learnings:
 
--
+- Leveraged JavaScript DOM methods to dynamically render content (e.g., comments, shows) and manage real-time updates without page reloads
+- Utilized a modular Sass structure with variables and mixins to ensure responsive design across all screen sizes (320px to 1920px)
+- Programmed form handling to prevent default behavior, store and update data in arrays, and re-render the DOM based on user input (e.g., adding new comments)
+- Implemented event-driven interactivity using `addEventListener` for form submissions, and JavaScript to handle hover and selected states on UI components
