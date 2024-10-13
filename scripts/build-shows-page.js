@@ -42,19 +42,38 @@ function displayShows() {
     const showDiv = document.createElement("div");
     showDiv.classList.add("show-item");
 
+    //Create and append date label
+    const dateElLabel = document.createElement("h4");
+    dateElLabel.textContent = `Date`;
+    dateElLabel.classList.add("show-item--hidden");
+    showDiv.appendChild(dateElLabel);
+
     // Create and append the date element
     const dateEl = document.createElement("p");
-    dateEl.textContent = `Date: ${show.date}`;
+    dateEl.textContent = `${show.date}`;
+    dateEl.classList.add("show-item--bold");
     showDiv.appendChild(dateEl);
+
+    //Create and append venue label
+    const venueElLabel = document.createElement("h4");
+    venueElLabel.textContent = `Venue`;
+    venueElLabel.classList.add("show-item--hidden");
+    showDiv.appendChild(venueElLabel);
 
     // venue
     const venueEl = document.createElement("p");
-    venueEl.textContent = `Venue: ${show.venue}`;
+    venueEl.textContent = `${show.venue}`;
     showDiv.appendChild(venueEl);
+
+    //Create and append location label
+    const locationElLabel = document.createElement("h4");
+    locationElLabel.textContent = `Location`;
+    locationElLabel.classList.add("show-item--hidden");
+    showDiv.appendChild(locationElLabel);
 
     // location
     const locationEl = document.createElement("p");
-    locationEl.textContent = `Location: ${show.location}`;
+    locationEl.textContent = `${show.location}`;
     showDiv.appendChild(locationEl);
 
     // button

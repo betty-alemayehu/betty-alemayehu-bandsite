@@ -1,0 +1,231 @@
+@use "./mixins" as *;
+@use "./variables" as *;
+/* Global Reset and Universal Rules */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-primary;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: inherit;
+}
+
+h1 {
+  @include pageHeader;
+}
+
+h2 {
+  @include sectionHeader;
+}
+
+h3 {
+  @include subHeader;
+}
+
+h4 {
+  @include labelsAndButtons;
+}
+
+body p {
+  @include bodyCopy;
+}
+
+footer p {
+  @include footerCopy;
+}
+
+.nav-bar {
+  width: 100%;
+  background-color: $primary-black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $white;
+  padding-top: $spacing-unit * 2;
+
+  @include tablet {
+    flex-direction: row;
+    justify-content: left;
+    padding-left: $spacing-unit * 8;
+  }
+  @include desktop {
+    flex-direction: row;
+    justify-content: left;
+    padding-left: $spacing-unit * 10;
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .logo__image {
+      width: 7.5rem;
+      height: auto;
+
+      @include mobile {
+        width: 30vw;
+        height: auto;
+        padding: $spacing-unit * 2;
+      }
+    }
+  }
+
+  &__pages {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+    @include largeDevice {
+      justify-content: flex-start;
+      width: auto;
+    }
+
+    .nav-bar__page {
+      display: flex;
+
+      &--active {
+        border-bottom: 0.25rem solid white;
+        padding: 1rem 0;
+        font-family: $font-bold; //Doesn't apply in browser - unsure why, feedback appreciated!
+        @include mobile {
+          padding-top: 0;
+        }
+      }
+
+      &--inactive {
+        border-bottom: 0.25rem solid $primary-black;
+        padding: 1rem 0;
+        @include mobile {
+          padding-top: 0;
+        }
+      }
+
+      &--active,
+      &--inactive {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50vw;
+
+        @include largeDevice {
+          width: auto;
+          margin-left: $spacing-unit * 2;
+          margin-right: $spacing-unit * 2;
+        }
+
+        .page__label {
+          @include nav-barPage;
+          text-align: center;
+          cursor: pointer;
+          transition: transform 0.2s ease;
+
+          &:hover {
+            transform: scale(
+              1.25
+            ); // Dive Deeper Sprint 1: hover effect looks like "zoom" as text grows 25% larger
+          }
+
+          &:focus,
+          &:active {
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  width: 100%;
+  padding: 0 $spacing-unit * 2;
+  padding-bottom: $spacing-unit * 2;
+  color: $white;
+  background-color: $primary-black;
+  position: relative; // For the logo movement in large devices
+
+  @include tablet {
+    padding: $spacing-unit * 8;
+  }
+
+  @include desktop {
+    padding: $spacing-unit * 10;
+  }
+
+  &__section-header {
+    padding-right: $spacing-unit * 4;
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+
+    @include largeDevice {
+      flex-direction: row;
+      align-items: baseline;
+    }
+
+    .footer__social {
+      display: flex;
+      flex-direction: row;
+      gap: $spacing-unit;
+    }
+  }
+
+  &__logo {
+    padding-top: $spacing-unit * 4;
+    .logo__image {
+      width: 7.5rem;
+      height: auto;
+
+      @include mobile {
+        width: 30vw;
+        height: auto;
+      }
+    }
+
+    @include tablet {
+      position: absolute;
+      top: $spacing-unit * 12;
+      right: $spacing-unit * 8;
+    }
+    @include desktop {
+      position: absolute;
+      top: $spacing-unit * 14;
+      right: $spacing-unit * 10;
+    }
+  }
+
+  &__social-icon {
+    height: 1.5rem;
+    width: auto;
+    padding-right: $spacing-unit * 4;
+  }
+
+  &__contact-group {
+    @include largeDevice {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      gap: $spacing-unit * 2;
+
+      @include desktop {
+        justify-content: left;
+        gap: $spacing-unit * 8;
+      }
+    }
+  }
+
+  &__text-copyright {
+    padding-top: $spacing-unit * 2;
+    padding-bottom: $spacing-unit * 2;
+    @include largeDevice {
+      padding-top: $spacing-unit * 8;
+    }
+  }
+}
