@@ -15,10 +15,13 @@
 
     img {
       width: 100%;
-      height: 50vh;
+      height: 60vh;
       object-fit: cover;
-      @include largeDevice {
-        height: 65vh;
+      @include tablet {
+        height: 70vh;
+      }
+      @include desktop {
+        height: 75vh;
       }
     }
 
@@ -29,7 +32,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.4); // Overlay to darken the image
+      background-color: rgba(0, 0, 0, 0.4);
       z-index: 1;
     }
   }
@@ -39,11 +42,11 @@
     top: 50%;
     left: 0;
     width: 100%;
-    height: auto; // Ensure header occupies full space of the cover image
+    height: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center; // Center content vertically
-    align-items: flex-start; // Align content to the left
+    justify-content: center;
+    align-items: flex-start;
     padding: 0 $spacing-unit * 2;
     z-index: 2;
     color: $white;
@@ -56,9 +59,9 @@
 
     iframe {
       width: 100%;
-      height: 25%; // Set iframe height to 1/4 of the cover height
-      max-width: 600px; // Optional: limit max width for iframe
-      margin-top: $spacing-unit; // Add space between text and iframe
+      height: 25%;
+      max-width: 600px;
+      margin-top: $spacing-unit;
     }
 
     @include tablet {
@@ -75,9 +78,11 @@
   width: 100%;
   padding: 0 $spacing-unit * 2;
   color: $primary-black;
+
   @include tablet {
     padding: 0 $spacing-unit * 8;
   }
+
   @include desktop {
     padding: 0 $spacing-unit * 10;
   }
@@ -103,6 +108,7 @@
   &__blockquote-footer {
     padding: $spacing-unit 0 0 0;
     font-size: 1.25rem;
+
     @include mobile {
       font-family: $font-demi;
     }
@@ -117,7 +123,6 @@
   }
 }
 
-/* Gallery */
 .gallery {
   width: 100%;
   padding: $spacing-unit * 2;
@@ -129,11 +134,12 @@
     padding: 0 $spacing-unit * 8;
     padding-bottom: $spacing-unit * 8;
   }
+
   @include desktop {
     padding: 0 $spacing-unit * 10;
     padding-bottom: $spacing-unit * 10;
   }
-  //&__images
+
   .gallery__images {
     display: flex;
     flex-direction: column;
@@ -146,11 +152,12 @@
       gap: $spacing-unit * 2;
     }
   }
-  //nest &__image
+
   .gallery__image {
     width: 100%;
     max-width: 100%;
     height: auto;
+
     @include mobile {
       padding-bottom: $spacing-unit * 2;
     }
@@ -158,12 +165,10 @@
     filter: grayscale(100%);
     transition: filter 0.25s ease;
 
-    // Diving Deeper Req: The image goes to full color
     &:hover {
       filter: grayscale(0%);
     }
 
-    // Added cal so each image takes 1 third of a row minus gap
     @include largeDevice {
       flex: 1 1 calc(33.333% - #{$spacing-unit * 2});
       max-width: calc(33.333% - #{$spacing-unit * 2});
@@ -172,22 +177,125 @@
 }
 
 .form {
-  font-family: $font-demi;
   font-size: 0.75rem;
   text-transform: uppercase;
   color: $silver;
+
   &__name,
   &__comment {
     display: flex;
     flex-direction: column;
+    margin-bottom: $spacing-unit; // Add vertical space between form elements
   }
 
-  #submit {
-    background-color: $primary-black;
-    color: $white;
-    text-transform: uppercase;
-    padding: $spacing-unit ($spacing-unit * 2);
-    border-radius: calc($spacing-unit/2);
-    width: 100%;
+  &__button {
+    display: flex;
+    justify-content: center; // Default alignment (center)
+
+    @include largeDevice {
+      justify-content: flex-end; // Align to the right on large devices
+    }
+  }
+}
+
+#submit {
+  background-color: $primary-black;
+  color: $white;
+  text-transform: uppercase;
+  padding: $spacing-unit ($spacing-unit * 2);
+  border-radius: calc($spacing-unit / 2);
+  width: 100%; // Full width on smaller devices
+
+  @include largeDevice {
+    width: fit-content; // Shrinks the button width to content size on large devices
+  }
+}
+
+.comments {
+  padding: 0 $spacing-unit * 2;
+  padding-bottom: $spacing-unit * 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include tablet {
+    padding: 0 $spacing-unit * 8;
+    padding-bottom: $spacing-unit * 2;
+  }
+
+  @include desktop {
+    padding: 0 $spacing-unit * 10;
+    padding-bottom: $spacing-unit * 2;
+  }
+
+  &__heading {
+    align-self: flex-start; // Align heading to the left
+  }
+
+  &__form {
+    max-width: 100%;
+    @include tablet {
+      max-width: 80%;
+    }
+    @include desktop {
+      max-width: 50%;
+    }
+  }
+
+  &__form-submission {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  &__inputbox {
+    flex-grow: 1;
+  }
+}
+
+.comments__heading h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $primary-black;
+}
+
+.comments__avatar {
+  border-radius: 50%;
+  min-width: 2.25rem;
+  max-width: 2.25rem;
+  min-height: 2.25rem;
+  max-height: 2.25rem;
+  background-color: $silver;
+  background-size: cover;
+  margin-right: $spacing-unit * 2;
+}
+
+.item--bold {
+  font-family: $font-demi;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: $silver;
+}
+
+.comment-item {
+  display: flex;
+  flex-direction: row;
+  border-top: 0.125rem solid $mercury;
+  padding: $spacing-unit * 4 0 0 0;
+  margin: $spacing-unit 0 0 0;
+  width: 100%; // Ensure the comment item takes full width
+
+  &__content {
+    flex-grow: 1; // Allow content to take up remaining space
+    width: 100%; // Ensure it takes the full width available
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; // Ensures name on the left and date on the right
+    width: 100%; // Ensure the header takes full width
+    padding-bottom: $spacing-unit;
+    padding-top: $spacing-unit;
   }
 }

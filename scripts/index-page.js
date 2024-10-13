@@ -20,36 +20,37 @@ const submissions = [
   },
 ];
 
-//event listener for form submission
+// Event listener for form submission
 document.getElementById("form").addEventListener("submit", function (event) {
-  //prevent default refresh (assignment requirement)
+  // Prevent default refresh (assignment requirement)
   event.preventDefault();
 
-  //define the name and comment values
+  // Define the name and comment values
   const name = document.getElementById("name").value;
   const comment = document.getElementById("comment").value;
   const currentDate = new Date().toLocaleDateString();
 
-  // Validate input fields - Dive Deeper #1: Prevent the form from submitting
-  if (!name || !comment) {
-    alert("Please enter both your name and a comment.");
-    return;
-  }
+  // Validate input fields
+  // if (!name || !comment) {
+  //   alert("Please enter both your name and a comment.");
+  //   return;
+  // }
 
-  //using the above 3 variables for name, date, and comment, prepare to create objects to push into the array
+  // Create a new comment object
   const newComment = {
     name: name,
     date: currentDate,
     comment: comment,
   };
-  //push new object
+
+  // Push the new comment to the beginning of the array
   submissions.unshift(newComment);
 
-  console.log(submissions);
-
+  // Clear the input fields
   document.getElementById("name").value = "";
   document.getElementById("comment").value = "";
 
+  // Re-render the comments
   displaySubmissions();
 });
 
@@ -71,26 +72,47 @@ function createComment(comment) {
   const commentDiv = document.createElement("div");
   commentDiv.classList.add("comment-item");
 
+  // Create the image element (avatar)
+  const imageEl = document.createElement("img");
+  imageEl.classList.add("comments__avatar");
+  imageEl.setAttribute("src", "");
+
+  // Create the content div (holds the header and the comment text)
+  const contentDiv = document.createElement("div");
+  contentDiv.classList.add("comment-item__content");
+
+  // Create a div to hold the name and date (header row)
+  const headerDiv = document.createElement("div");
+  headerDiv.classList.add("comment-item__header");
+
   // Create the name element
   const nameEl = document.createElement("h4");
   nameEl.textContent = comment.name;
 
   // Create the date element
   const dateEl = document.createElement("span");
+  dateEl.classList.add("item--bold");
   dateEl.textContent = comment.date;
+
+  // Append the name and date to the header div
+  headerDiv.appendChild(nameEl);
+  headerDiv.appendChild(dateEl);
 
   // Create the comment text element
   const commentTextEl = document.createElement("p");
   commentTextEl.textContent = comment.comment;
 
-  // Append the elements to the comment container div
-  commentDiv.appendChild(nameEl);
-  commentDiv.appendChild(dateEl);
-  commentDiv.appendChild(commentTextEl);
+  // Append the header (name & date) and comment text to the content div
+  contentDiv.appendChild(headerDiv);
+  contentDiv.appendChild(commentTextEl);
+
+  // Append the avatar image and content div to the comment container
+  commentDiv.appendChild(imageEl);
+  commentDiv.appendChild(contentDiv);
 
   // Append the comment div to the formArray div
-  formArray.appendChild(commentDiv);
+  document.getElementById("formArray").appendChild(commentDiv);
 }
 
-// displays comments even if no submissions are made via form
+// Displays comments even if no submissions are made via form
 window.addEventListener("load", displaySubmissions);

@@ -20,7 +20,7 @@
             <img
               src="./assets/Logo/Logo-bandsite.svg"
               class="logo__image"
-              alt="Home"
+              alt="Home icon"
             />
           </a>
         </div>
@@ -35,13 +35,17 @@
           </div>
         </div>
       </header>
+
       <!-- Cover hero -->
       <div class="cover">
         <div class="cover__page-header">
           <h1>The Bees Knees</h1>
         </div>
         <div class="cover__image">
-          <img src="./assets/Images/hero-bio.jpg" />
+          <img
+            src="./assets/Images/hero-bio.jpg"
+            alt="Bee flying over flower"
+          />
         </div>
       </div>
 
@@ -52,7 +56,7 @@
           <img
             class="biography__image"
             src="./assets/Images/band.jpg"
-            alt="The Bees Knees band image"
+            alt="The Bees Knees band playing at concert"
           />
           <div class="biography__blockquote">
             <h3 class="biography__blockquote-copy">
@@ -90,6 +94,7 @@
           </div>
         </div>
       </div>
+
       <!-- Photo Gallery -->
       <div class="gallery">
         <h2 class="gallery__heading">Photo Gallery</h2>
@@ -97,81 +102,100 @@
           <img
             class="gallery__image"
             src="./assets/Images/Photo-gallery-1.jpg"
-            alt="The Bees Knees band image 1"
+            alt="Fog machine at concert"
           />
           <img
             class="gallery__image"
             src="./assets/Images/Photo-gallery-2.jpg"
-            alt="The Bees Knees band image 2"
+            alt="Woman cheering band"
           />
           <img
             class="gallery__image"
             src="./assets/Images/Photo-gallery-3.jpg"
-            alt="The Bees Knees band image 3"
+            alt="Hands raised at concert"
           />
           <img
             class="gallery__image"
             src="./assets/Images/Photo-gallery-4.jpg"
-            alt="The Bees Knees band image 4"
+            alt="Lights shining on cheering fan"
           />
           <img
             class="gallery__image"
             src="./assets/Images/Photo-gallery-5.jpg"
-            alt="The Bees Knees band image 5"
+            alt="Streamers and fireworks explode at concert"
           />
           <img
             class="gallery__image"
             src="./assets/Images/Photo-gallery-9.jpg"
-            alt="The Bees Knees band image 9"
+            alt="Confetti falling over crowd"
           />
           <img
             class="gallery__image"
             src="./assets/Images/Photo-gallery-7.jpg"
-            alt="The Bees Knees band image 7"
+            alt="Confetti falling over crowd in stadium"
           />
           <img
             class="gallery__image"
             src="./assets/Images/Photo-gallery-8.jpg"
-            alt="The Bees Knees band image 8"
+            alt="DJ's hands over turntable"
           />
           <img
             class="gallery__image"
             src="./assets/Images/Photo-gallery-6.jpg"
-            alt="The Bees Knees band image 6"
+            alt="Singer holding mic and performing"
           />
         </div>
       </div>
     </div>
+
     <!-- Join the Conversation/Comment Section -->
     <div class="comments">
       <div class="comments__heading">
         <h2>Join the Conversation</h2>
       </div>
       <div class="comments__form">
-        <form class="form" id="form">
-          <!-- Comment Form -->
-          <div class="form__name">
-            <label for="name">NAME</label>
-            <input type="text" id="name" placeholder="Enter your name" />
+        <div class="comments__form-submission">
+          <div>
+            <img
+              class="comments__avatar"
+              src="./assets/Images/Mohan-muruge.jpg"
+              alt="user avatar"
+            />
           </div>
-          <div class="form__comment">
-            <label for="comment">COMMENT</label>
-            <textarea
-              id="comment"
-              rows="5"
-              placeholder="Add a new comment"
-            ></textarea>
+          <div class="comments__inputbox">
+            <form class="form" id="form">
+              <!-- Comment Form -->
+              <div class="form__name">
+                <label for="name">NAME</label>
+                <input
+                  required
+                  type="text"
+                  id="name"
+                  placeholder="Enter your name"
+                />
+              </div>
+              <div class="form__comment">
+                <label for="comment">COMMENT</label>
+                <textarea
+                  required
+                  id="comment"
+                  rows="5"
+                  placeholder="Add a new comment"
+                ></textarea>
+              </div>
+              <div class="form__button">
+                <button type="submit" id="submit">Comment</button>
+              </div>
+            </form>
           </div>
-          <div class="form__button">
-            <button type="submit" id="submit">Comment</button>
-          </div>
-        </form>
+        </div>
         <!-- Comments Array -->
         <div class="comments__array" id="formArray">
           <!-- Comments submitted will appear here -->
         </div>
       </div>
     </div>
+
     <!-- Footer -->
     <footer class="footer">
       <div class="footer__contact">
@@ -235,7 +259,7 @@
           <img
             src="./assets/Logo/Logo-bandsite.svg"
             class="logo__image"
-            alt="Home"
+            alt="Home icon"
           />
         </a>
       </div>

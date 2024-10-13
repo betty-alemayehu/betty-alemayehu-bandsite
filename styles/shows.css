@@ -6,13 +6,13 @@
   font-style: normal;
 }
 @font-face {
-  font-family: "Avenir Next Demi";
+  font-family: "Avenir Next";
   src: url("../../assets/Font/AvenirNextLTPro-Demi.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
-  font-family: "Avenir Next Bold";
+  font-family: "Avenir Next";
   src: url("../../assets/Font/AvenirNextLTPro-Bold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
@@ -77,13 +77,13 @@ h3 {
 }
 
 h4 {
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   line-height: 1.25rem;
   font-family: "Avenir Next Demi", sans-serif;
 }
 @media (min-width: 768px) {
   h4 {
-    font-size: 0.75rem;
+    font-size: 1.25rem;
     line-height: 1.25rem;
   }
 }
@@ -334,7 +334,12 @@ footer p {
   -o-object-fit: cover;
      object-fit: cover;
 }
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1279px) {
+  .cover__image img {
+    height: 70vh;
+  }
+}
+@media (min-width: 1280px) {
   .cover__image img {
     height: 75vh;
   }
