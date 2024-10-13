@@ -20,7 +20,7 @@
   }
 }
 
-// Mixin for mobile (<767px)
+// Mixin for mobile (<767px); used for testing, will remove in final submission which uses mobile first approach
 @mixin mobile {
   @media (max-width: 767px) {
     @content;

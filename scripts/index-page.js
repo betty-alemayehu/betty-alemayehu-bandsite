@@ -1,4 +1,4 @@
-// Preloaded comments array (no localStorage handling)
+// Preloaded comments array
 const submissions = [
   {
     name: "Victor Pinto",
@@ -30,12 +30,6 @@ document.getElementById("form").addEventListener("submit", function (event) {
   const comment = document.getElementById("comment").value;
   const currentDate = new Date().toLocaleDateString();
 
-  // Validate input fields
-  // if (!name || !comment) {
-  //   alert("Please enter both your name and a comment.");
-  //   return;
-  // }
-
   // Create a new comment object
   const newComment = {
     name: name,
@@ -61,7 +55,7 @@ function displaySubmissions() {
   // Clear any existing content
   formArray.innerHTML = "";
 
-  // Loop through the comments array and create HTML elements for each comment
+  // Loop through comments array and create HTML elements for each submission
   submissions.forEach((submission) => {
     createComment(submission);
   });

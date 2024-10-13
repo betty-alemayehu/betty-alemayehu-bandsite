@@ -35,7 +35,7 @@ const shows = [
 // Function to render the shows on the page
 function displayShows() {
   const container = document.getElementById("showContainer");
-  let selectedShow = null; // Keep track of the currently selected show
+  let selectedShow = null; // Keep track of the currently selected show, use for hover effect later
 
   shows.forEach((show) => {
     // Create a container div for each show
