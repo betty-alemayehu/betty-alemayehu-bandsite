@@ -171,6 +171,7 @@
                   required
                   type="text"
                   id="name"
+                  name="name"
                   placeholder="Enter your name"
                 />
               </div>
@@ -178,13 +179,14 @@
                 <label for="comment">COMMENT</label>
                 <textarea
                   required
+                  name="comment"
                   id="comment"
                   rows="5"
                   placeholder="Add a new comment"
                 ></textarea>
               </div>
               <div class="form__button">
-                <button type="submit" id="submit">Comment</button>
+                <button name="submit" type="submit" id="submit">Comment</button>
               </div>
             </form>
           </div>
@@ -269,6 +271,8 @@
         </p>
       </div>
     </footer>
-    <script src="./scripts/index-page.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./scripts/index-page.js" defer type="module"></script>
+    <script src="./scripts/band-site-api.js" defer type="module"></script>
   </body>
 </html>
