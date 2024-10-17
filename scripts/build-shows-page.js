@@ -108,76 +108,72 @@ const bandApi = new BandSiteApi(apiKey);
 
 // Function to render the shows on the page
 async function displayShows() {
-  try {
-    const container = document.getElementById("showContainer");
-    let selectedShow = null; // Keep track of the currently selected show (for dive deeper select effects)
+  const container = document.getElementById("showContainer");
+  let selectedShow = null; // Keep track of the currently selected show (for dive deeper select effects)
 
-    // Fetch(get) shows data from the API
-    const shows = await bandApi.getShows();
+  // Fetch(get) shows data from the API
+  const shows = await bandApi.getShows();
 
-    //Where showS = all data in api, and show = single show object
-    shows.forEach((show) => {
-      // Create a container div for each show
-      const showDiv = document.createElement("div");
-      showDiv.classList.add("show-item");
+  //Where showS = all data in api, and show = single show object
+  shows.forEach((show) => {
+    // Create a container div for each show
+    const showDiv = document.createElement("div");
+    showDiv.classList.add("show-item");
 
-      //Create and append date label
-      const dateElLabel = document.createElement("h4");
-      dateElLabel.textContent = `Date`;
-      dateElLabel.classList.add("show-item--hidden");
-      showDiv.appendChild(dateElLabel);
+    //Create and append date label
+    const dateElLabel = document.createElement("h4");
+    dateElLabel.textContent = `Date`;
+    dateElLabel.classList.add("show-item--hidden");
+    showDiv.appendChild(dateElLabel);
 
-      // Create and append the date element (plus convert timestamp to date format for site)
-      const dateEl = document.createElement("p");
-      const formattedDate = new Date(show.date).toDateString();
-      dateEl.textContent = `${formattedDate}`;
-      dateEl.classList.add("show-item--bold");
-      showDiv.appendChild(dateEl);
+    // Create and append the date element (plus convert timestamp to date format for site)
+    const dateEl = document.createElement("p");
+    const formattedDate = new Date(show.date).toDateString();
+    dateEl.textContent = `${formattedDate}`;
+    dateEl.classList.add("show-item--bold");
+    showDiv.appendChild(dateEl);
 
-      //Create and append venue label
-      const venueElLabel = document.createElement("h4");
-      venueElLabel.textContent = `Venue`;
-      venueElLabel.classList.add("show-item--hidden");
-      showDiv.appendChild(venueElLabel);
+    //Create and append venue label
+    const venueElLabel = document.createElement("h4");
+    venueElLabel.textContent = `Venue`;
+    venueElLabel.classList.add("show-item--hidden");
+    showDiv.appendChild(venueElLabel);
 
-      // venue (place from API)
-      const venueEl = document.createElement("p");
-      venueEl.textContent = `${show.place}`;
-      showDiv.appendChild(venueEl);
+    // venue (place from API)
+    const venueEl = document.createElement("p");
+    venueEl.textContent = `${show.place}`;
+    showDiv.appendChild(venueEl);
 
-      //Create and append location label
-      const locationElLabel = document.createElement("h4");
-      locationElLabel.textContent = `Location`;
-      locationElLabel.classList.add("show-item--hidden");
-      showDiv.appendChild(locationElLabel);
+    //Create and append location label
+    const locationElLabel = document.createElement("h4");
+    locationElLabel.textContent = `Location`;
+    locationElLabel.classList.add("show-item--hidden");
+    showDiv.appendChild(locationElLabel);
 
-      // location
-      const locationEl = document.createElement("p");
-      locationEl.textContent = `${show.location}`;
-      showDiv.appendChild(locationEl);
+    // location
+    const locationEl = document.createElement("p");
+    locationEl.textContent = `${show.location}`;
+    showDiv.appendChild(locationEl);
 
-      // button
-      const buttonEl = document.createElement("button");
-      buttonEl.textContent = "Buy Tickets";
-      showDiv.appendChild(buttonEl);
+    // button
+    const buttonEl = document.createElement("button");
+    buttonEl.textContent = "Buy Tickets";
+    showDiv.appendChild(buttonEl);
 
-      // Append the showDiv to the container
-      container.appendChild(showDiv);
+    // Append the showDiv to the container
+    container.appendChild(showDiv);
 
-      // Event listener for click to apply selected state
-      showDiv.addEventListener("click", () => {
-        // Remove selected class from the previously selected show
-        if (selectedShow) {
-          selectedShow.classList.remove("selected");
-        }
-        // Add selected class to the clicked show (refer to shows.scss for application)
-        showDiv.classList.add("selected");
-        selectedShow = showDiv;
-      });
+    // Event listener for click to apply selected state
+    showDiv.addEventListener("click", () => {
+      // Remove selected class from the previously selected show
+      if (selectedShow) {
+        selectedShow.classList.remove("selected");
+      }
+      // Add selected class to the clicked show (refer to shows.scss for application)
+      showDiv.classList.add("selected");
+      selectedShow = showDiv;
     });
-  } catch (error) {
-    console.error("Error displaying shows:", error);
-  }
+  });
 }
 
 // displayShows function when the page loads

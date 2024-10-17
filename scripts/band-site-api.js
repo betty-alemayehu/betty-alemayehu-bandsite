@@ -28,7 +28,8 @@ class BandSiteApi {
         comment
       );
       const sortComments = response.data.sort((a, b) => {
-        return new Date(b.timestamp) - new Date(a.timestamp);
+        // return new Date(b.timestamp) - new Date(a.timestamp);
+        return b.timestamp - a.timestamp;
       });
       return sortComments;
     } catch (error) {
@@ -48,4 +49,5 @@ class BandSiteApi {
     }
   }
 }
+//so that it is accessible via the other js sheets:
 export default BandSiteApi;

@@ -113,7 +113,7 @@
 // window.addEventListener("load", displaySubmissions);
 
 //bandsite #3 submission
-import BandSiteApi from "./band-site-api.js"; // Make sure the path is correct
+import BandSiteApi from "./band-site-api.js";
 
 const apiKey = "44993b1e-d67d-40a6-b841-df26de004af8";
 const bandApi = new BandSiteApi(apiKey);
@@ -124,9 +124,9 @@ document
   .addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    // Capture form inputs
-    const name = document.getElementById("name").value.trim();
-    const comment = document.getElementById("comment").value.trim();
+    // Capture form inputs using event.target
+    const name = event.target.name.value.trim();
+    const comment = event.target.comment.value.trim();
 
     // Create a new comment object (without timestamp, error 404 if anything more than name and comment is added)
     const newComment = {
@@ -134,37 +134,27 @@ document
       comment: comment,
     };
 
-    try {
-      // Post the new comment to the API
-      const createdComment = await bandApi.postComment(newComment);
+    // Post the new comment to the API
+    const createdComment = await bandApi.postComment(newComment);
 
-      // Add the new comment to the DOM
-      createComment(createdComment);
-
-      // Clear form inputs
-      document.getElementById("name").value = "";
-      document.getElementById("comment").value = "";
-    } catch (error) {
-      console.error("Error posting comment:", error);
-    }
+    // Clear form inputs
+    event.target.name.value = "";
+    event.target.comment.value = "";
+    displaySubmissions();
   });
 
 // Function to display the comments on the page
 async function displaySubmissions() {
-  try {
-    const formArray = document.getElementById("formArray");
-    formArray.innerHTML = ""; // Clear existing content
+  const formArray = document.getElementById("formArray");
+  formArray.innerHTML = ""; // Clear existing content
 
-    // Fetch comments from the API
-    const submissions = await bandApi.getComments();
+  // Fetch comments from the API
+  const submissions = await bandApi.getComments();
 
-    // Loop through each comment and render it on the page
-    submissions.forEach((submission) => {
-      createComment(submission);
-    });
-  } catch (error) {
-    console.error("Error displaying comments:", error);
-  }
+  // Loop through each comment and render it on the page
+  submissions.forEach((submission) => {
+    createComment(submission);
+  });
 }
 
 // Function to create and display a comment
@@ -206,11 +196,12 @@ function createComment(comment) {
   // Append the comment to the formArray container
   document.getElementById("formArray").appendChild(commentDiv);
 }
+displaySubmissions();
 
 // Fetch and display comments when the page loads
-window.addEventListener("load", displaySubmissions);
+// window.addEventListener("load", displaySubmissions);
 
 //need something that will render comments after submit
 //currently the addition adds to the bottom, while on refresh moves to top
 //whyyy
-submit.addEventListener("click", displaySubmissions);
+// submit.addEventListener("click", displaySubmissions);
