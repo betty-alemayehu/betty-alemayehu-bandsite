@@ -164,8 +164,9 @@ function createComment(comment) {
 
   // Placeholder avatar
   const imageEl = document.createElement("img");
-  imageEl.classList.add("comments__avatar");
-  imageEl.setAttribute("src", "");
+  imageEl.classList.add("comments__avatar--placeholder");
+  imageEl.src = "./assets/Images/Mohan-muruge.jpg";
+  imageEl.alt = comment.name + "user image";
 
   const contentDiv = document.createElement("div");
   contentDiv.classList.add("comment-item__content");
