@@ -49,11 +49,15 @@ function createComment(comment) {
   const commentDiv = document.createElement("div");
   commentDiv.classList.add("comment-item");
 
-  // Placeholder avatar
+  // Placeholder avatar container (wrapper)
+  const avatarWrapper = document.createElement("div");
+  avatarWrapper.classList.add("comments__avatar--placeholder");
+
+  // Avatar image inside the wrapper
   const imageEl = document.createElement("img");
   imageEl.classList.add("comments__avatar");
   imageEl.src = "./assets/Images/Mohan-muruge.jpg";
-  imageEl.alt = `${comment.name} user image`;
+  imageEl.alt = comment.name + " user image";
 
   const contentDiv = document.createElement("div");
   contentDiv.classList.add("comment-item__content");
@@ -77,8 +81,12 @@ function createComment(comment) {
 
   contentDiv.appendChild(headerDiv);
   contentDiv.appendChild(commentTextEl);
+  // Append the image to the wrapper
+  avatarWrapper.appendChild(imageEl);
+  // Append the wrapper to the comment item
+  commentDiv.appendChild(avatarWrapper);
 
-  commentDiv.appendChild(imageEl);
+  // commentDiv.appendChild(imageEl);
   commentDiv.appendChild(contentDiv);
 
   // Append the comment to the formArray container

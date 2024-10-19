@@ -1,6 +1,19 @@
-// @use "./partials/global" as *;
-// @use "./partials/mixins" as *;
-// @use "./partials/variables" as *;
+@use "./partials/global" as *;
+@use "./partials/mixins" as *;
+@use "./partials/variables" as *;
+
+//cover/hero section, unique parts of shows page: title and iframe
+.cover {
+  &__title {
+    display: flex;
+    flex-direction: column;
+  }
+  &_iframe {
+    z-index: 2;
+    max-height: 25vw;
+    width: 100%;
+  }
+}
 
 // .cover {
 //   position: relative;
