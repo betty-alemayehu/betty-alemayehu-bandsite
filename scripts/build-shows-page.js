@@ -8,6 +8,9 @@ async function displayShows() {
   const container = document.getElementById("showContainer");
   let selectedShow = null; // Keep track of the currently selected show (for "selected" state)
 
+  // Create and append the shows label row
+  createShowsLabel();
+
   // Fetch shows data from the API
   const shows = await bandApi.getShows();
 
@@ -74,6 +77,29 @@ async function displayShows() {
       selectedShow = showDiv;
     });
   });
+}
+
+// Function to create the label row above the shows container
+function createShowsLabel() {
+  // Find the shows section
+  const showsSection = document.querySelector(".shows");
+
+  // Create the label container (comment-item)
+  const labelDiv = document.createElement("div");
+  labelDiv.classList.add("show-item", "shows__label");
+
+  // Create and append each label (Date, Venue, Location, Blank)
+  const labels = ["Date", "Venue", "Location", ""];
+  labels.forEach((labelText) => {
+    const labelEl = document.createElement("p");
+    labelEl.textContent = labelText;
+    labelEl.classList.add("show-item__label");
+    labelDiv.appendChild(labelEl);
+  });
+
+  // Insert the label row after the h2 heading
+  const showsHeader = document.querySelector(".shows__header");
+  showsSection.insertBefore(labelDiv, showsHeader.nextSibling);
 }
 
 // Execute displayShows function when the page loads

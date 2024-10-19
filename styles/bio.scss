@@ -5,7 +5,6 @@
 //biography
 .biography {
   width: 100%;
-  color: $bandSite-Black;
 
   @include devicePadding;
 
@@ -17,6 +16,9 @@
 
   &__image {
     width: 100%;
+    min-height: 45vh;
+    max-height: 52.5vh;
+    object-fit: cover;
   }
 
   &__bodytext {
@@ -31,7 +33,6 @@
 //gallery
 .gallery {
   width: 100%;
-  color: $bandSite-Black;
   background-color: $alabaster;
 
   @include devicePadding;

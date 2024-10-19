@@ -35,6 +35,27 @@ a {
   max-height: 1.25rem;
 }
 
+button {
+  background-color: #323232;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem;
+  width: 100%;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  button {
+    min-width: 9.375rem;
+    padding: 0 2rem;
+  }
+}
+button:hover {
+  background-color: #000000;
+}
+
 .nav-bar {
   display: flex;
   flex-direction: column;
@@ -214,7 +235,6 @@ a {
 
 .biography {
   width: 100%;
-  color: #323232;
   padding: 0 1rem;
 }
 @media (min-width: 768px) {
@@ -234,6 +254,10 @@ a {
 }
 .biography__image {
   width: 100%;
+  min-height: 45vh;
+  max-height: 52.5vh;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 @media (min-width: 768px) {
   .biography__bodytext {
@@ -245,7 +269,6 @@ a {
 
 .gallery {
   width: 100%;
-  color: #323232;
   background-color: #fafafa;
   padding: 0 1rem;
 }
