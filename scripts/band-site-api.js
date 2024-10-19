@@ -1,4 +1,5 @@
-//Bandsite 3
+// Bandsite API integration
+
 const apiKey = "44993b1e-d67d-40a6-b841-df26de004af8";
 
 class BandSiteApi {
@@ -7,7 +8,7 @@ class BandSiteApi {
     this.apiURL = "https://unit-2-project-api-25c1595833b2.herokuapp.com";
   }
 
-  // postComment
+  // Post a new comment to the API
   async postComment(comment) {
     try {
       const response = await axios.post(
@@ -20,24 +21,23 @@ class BandSiteApi {
     }
   }
 
-  //getComments
+  // Get comments from the API
   async getComments() {
     try {
       const response = await axios.get(
-        `${this.apiURL}/comments?api_key=${this.apiKey}`,
-        comment
+        `${this.apiURL}/comments?api_key=${this.apiKey}`
       );
-      const sortComments = response.data.sort((a, b) => {
-        // return new Date(b.timestamp) - new Date(a.timestamp);
-        return b.timestamp - a.timestamp;
-      });
-      return sortComments;
+      // Sort comments by timestamp, newest first
+      const sortedComments = response.data.sort(
+        (a, b) => b.timestamp - a.timestamp
+      );
+      return sortedComments;
     } catch (error) {
-      console.error("Error with comment get:", error);
+      console.error("Error with fetching comments:", error);
     }
   }
 
-  //getShows
+  // Get show dates from the API
   async getShows() {
     try {
       const response = await axios.get(
@@ -45,9 +45,10 @@ class BandSiteApi {
       );
       return response.data;
     } catch (error) {
-      console.error("Error with show get:", error);
+      console.error("Error with fetching show dates:", error);
     }
   }
 }
-//so that it is accessible via the other js sheets:
+
+// Export BandSiteApi for use in other scripts
 export default BandSiteApi;

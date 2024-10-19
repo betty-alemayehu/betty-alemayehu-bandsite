@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Bees Knees Band</title>
+    <title>The Bees Knees Band - Shows</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../styles/bio.css" />
@@ -14,64 +14,63 @@
 
   <body>
     <div class="padding-container">
-      <!-- Navigation Bar -->
-      <header class="nav-bar">
+      <!-- Navigation -->
+      <nav class="nav-bar">
         <div class="nav-bar__logo">
-          <a class="logo__link" href="../index.html">
+          <a class="nav-bar__link" href="../index.html">
             <img
               src="../assets/Logo/Logo-bandsite.svg"
-              class="logo__image"
+              class="nav-bar__image"
               alt="Home icon"
             />
           </a>
         </div>
         <div class="nav-bar__pages">
-          <div class="nav-bar__page">
-            <div class="nav-bar__page--inactive">
-              <a class="page__label" href="../index.html">Biography</a>
-            </div>
-            <div class="nav-bar__page--active">
-              <a class="page__label" href="./shows.html">Shows</a>
-            </div>
+          <div class="nav-bar__page nav-bar__page--inactive">
+            <a
+              class="nav-bar__label nav-bar__label--inactive"
+              href="../index.html"
+              >Biography</a
+            >
+          </div>
+          <div class="nav-bar__page nav-bar__page--active">
+            <a class="nav-bar__label nav-bar__label--active" href="./shows.html"
+              >Shows</a
+            >
           </div>
         </div>
-      </header>
-      <!-- Cover hero -->
-      <div class="cover">
-        <div class="cover__page-header">
-          <h3>Beautiful Beasts Album</h3>
-          <h1>
-            <span>Stripes of Yellow x</span>
+      </nav>
 
-            <span> The Stings</span>
+      <!-- Cover hero -->
+      <main class="cover">
+        <section class="cover__page-header">
+          <h3>Beautiful Beasts Album</h3>
+          <h1 class="cover__title">
+            <span>Stripes of Yellow x</span><span> The Stings</span>
           </h1>
-          <!-- <br /> -->
           <iframe
-            width="100%"
-            height="100%"
+            class="cover__iframe"
             scrolling="no"
             frameborder="no"
             allow="autoplay"
-            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/271220098&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=true&visual=true"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/271220098&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
           ></iframe>
-        </div>
-        <div class="cover__image">
+        </section>
+        <section class="cover__image">
           <img src="../assets/Images/hero-shows.jpg" alt="Hands at a concert" />
-        </div>
-      </div>
+        </section>
+      </main>
     </div>
-    <!-- Join the Conversation/Comment Section -->
-    <div class="shows">
-      <div>
-        <h2 class="shows__header">Shows</h2>
-      </div>
-      <div id="showContainer">
-        <!-- Show-items from array will be added here -->
-      </div>
-    </div>
+
+    <!-- Shows Section -->
+    <section class="shows">
+      <h2 class="shows__header">Shows</h2>
+      <div id="showContainer"></div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
-      <div class="footer__contact">
+      <section class="footer__contact">
         <h2 class="footer__section-header">Get in Touch</h2>
         <div class="footer__social">
           <a href="https://www.instagram.com/" class="footer__social-link">
@@ -96,7 +95,7 @@
             />
           </a>
         </div>
-      </div>
+      </section>
       <div class="footer__contact-group">
         <div class="footer__contact-card">
           <h3 class="footer__sub-header">The Bees Knees Management</h3>
@@ -128,10 +127,10 @@
         </div>
       </div>
       <div class="footer__logo">
-        <a class="logo__link" href="index.html">
+        <a class="footer__link" href="index.html">
           <img
             src="../assets/Logo/Logo-bandsite.svg"
-            class="logo__image"
+            class="footer__image"
             alt="Home icon"
           />
         </a>
@@ -142,6 +141,7 @@
         </p>
       </div>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../scripts/build-shows-page.js" type="module"></script>
     <script src="../scripts/band-site-api.js" type="module"></script>

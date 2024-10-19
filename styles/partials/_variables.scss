@@ -1,39 +1,16 @@
-/* Custom Font Face */
-@font-face {
-  font-family: "Avenir Next";
-  src: url("../../assets/Font/AvenirNextLTPro-Regular.otf") format("opentype");
-  font-weight: 400;
-  font-style: normal;
-}
+// Define variabiles and mixins for font settings that include family, weight, and style
+$font-primary: "Avenir Next", sans-serif;
+$font-weight-regular: 400;
+$font-weight-demi: 500;
+$font-weight-bold: 700;
 
-@font-face {
-  font-family: "Avenir Next";
-  src: url("../../assets/Font/AvenirNextLTPro-Demi.otf") format("opentype");
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Avenir Next";
-  src: url("../../assets/Font/AvenirNextLTPro-Bold.otf") format("opentype");
-  font-weight: 700;
-  font-style: normal;
-}
-
-//Fonts
-$primary-black: #323232;
+// // Colors
+$bandSite-Black: #323232;
 $silver: #afafaf;
 $white: #ffffff;
-$dark-black: #000000;
+$bandSite-DarkBlack: #000000;
 $mercury: #e1e1e1;
 $alabaster: #fafafa;
 
-// Font variables
-$font-primary: "Avenir Next", sans-serif;
-$font-demi: "Avenir Next Demi", sans-serif;
-$font-bold: "Avenir Next Bold", sans-serif;
-
-/* Spacing */
-$spacing-unit: 8px;
-
-// Future sprint: add spacing variables aligned to padding section of style guide (i.e. for each padding increment)
+// /* Spacing */
+$spacing-unit: 8px; // Base spacing unit for layout and padding
