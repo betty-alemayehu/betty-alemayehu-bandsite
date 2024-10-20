@@ -34,11 +34,13 @@ h1 {
   font-size: 1.75rem;
   line-height: 2rem;
   font-weight: 500;
+  padding: 1.5rem 0;
 }
 @media (min-width: 768px) {
   h1 {
     font-size: 3.75rem;
-    line-height: 2.75rem;
+    line-height: 4.75rem;
+    padding: 3rem 0;
   }
 }
 
@@ -63,14 +65,12 @@ h3 {
   line-height: 2rem;
   font-weight: 400;
   padding-top: 1.5rem;
-  padding-bottom: 1rem;
 }
 @media (min-width: 768px) {
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     line-height: 2rem;
     padding-top: 3rem;
-    padding-bottom: 2.25rem;
   }
 }
 
@@ -106,7 +106,7 @@ h5 {
 body p {
   font-size: 1.15rem;
   line-height: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
 }
 @media (min-width: 768px) {
   body p {
@@ -116,9 +116,8 @@ body p {
 }
 
 footer p {
-  font-size: 0.8125rem;
-  line-height: 1.125rem;
-  padding-bottom: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 @media (min-width: 768px) {
   footer p {
@@ -144,6 +143,7 @@ button {
   width: 100%;
   border-radius: 0.25rem;
   text-transform: uppercase;
+  margin: 1rem 0;
   cursor: pointer;
 }
 @media (min-width: 768px) {
@@ -163,6 +163,18 @@ button:hover {
   justify-content: center;
   color: #ffffff;
   background-color: #323232;
+}
+@media (min-width: 768px) {
+  .nav-bar {
+    flex-direction: row;
+    justify-content: left;
+    padding: 0 4rem;
+  }
+}
+@media (min-width: 1280px) {
+  .nav-bar {
+    padding: 0 5rem;
+  }
 }
 .nav-bar__logo {
   display: flex;
@@ -204,12 +216,16 @@ button:hover {
   color: #ffffff;
 }
 
+body {
+  color: #323232;
+}
+
 .cover {
   position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 30vh;
+  min-height: 50vh;
   overflow: hidden;
   color: #ffffff;
 }
@@ -231,11 +247,13 @@ button:hover {
 @media (min-width: 768px) {
   .cover__page-header {
     padding: 0 4rem;
+    padding-bottom: 1rem;
   }
 }
 @media (min-width: 1280px) {
   .cover__page-header {
     padding: 0 5rem;
+    padding-bottom: 1rem;
   }
 }
 .cover__image {
@@ -264,6 +282,26 @@ button:hover {
   opacity: 0.5;
   z-index: 1;
 }
+.cover__title {
+  display: flex;
+  flex-direction: column;
+}
+.cover__iframe {
+  z-index: 2;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .cover__iframe {
+    width: auto;
+    max-width: 60%;
+  }
+}
+@media (min-width: 768px) and (min-width: 1280px) {
+  .cover__iframe {
+    width: auto;
+    max-width: 40%;
+  }
+}
 
 .footer {
   color: #ffffff;
@@ -282,11 +320,13 @@ button:hover {
 @media (min-width: 768px) {
   .footer {
     padding: 0 4rem;
+    padding-bottom: 1rem;
   }
 }
 @media (min-width: 1280px) {
   .footer {
     padding: 0 5rem;
+    padding-bottom: 1rem;
   }
 }
 .footer__contact {
@@ -298,6 +338,15 @@ button:hover {
   flex-direction: column;
   flex-grow: 1;
   width: 100%;
+}
+.footer__social {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+.footer__social-icon {
+  height: 1.5rem;
+  width: auto;
 }
 .footer__contact-card {
   display: flex;
@@ -330,34 +379,65 @@ button:hover {
     z-index: 1;
   }
 }
-
-.cover {
-  min-height: 60vh;
+.footer a {
+  padding-top: 1rem;
 }
-.cover__title {
-  display: flex;
-  flex-direction: column;
-}
-.cover_iframe {
-  z-index: 2;
-  width: 100%;
+.footer h3 {
+  font-weight: 500;
 }
 
 .shows {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  width: 100%;
   padding: 0 1rem;
   padding-bottom: 1rem;
 }
 @media (min-width: 768px) {
   .shows {
     padding: 0 4rem;
+    padding-bottom: 1rem;
   }
 }
 @media (min-width: 1280px) {
   .shows {
     padding: 0 5rem;
+    padding-bottom: 1rem;
+  }
+}
+.shows__label--tablet {
+  display: none;
+}
+@media (min-width: 768px) {
+  .shows__label--tablet {
+    display: flex;
+  }
+}
+.shows__label--tablet {
+  padding-top: 0;
+  text-transform: uppercase;
+  color: #afafaf;
+  display: none;
+  font-weight: 500;
+  flex-grow: 1;
+}
+@media (min-width: 768px) {
+  .shows__label--tablet {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .shows__label--tablet > * {
+    flex-grow: 1;
+    flex-basis: 25%;
+    text-align: left;
+  }
+  .shows__label--tablet p {
+    flex-grow: 1;
+    margin: 0;
+    padding-top: 0;
   }
 }
 .shows .show-item {
@@ -390,18 +470,17 @@ button:hover {
     text-align: left;
   }
 }
+.shows .show-item h4 {
+  padding-top: 1rem;
+}
 .shows .show-item p {
   flex-grow: 1;
   margin: 0;
+  padding-top: 0;
 }
 .shows .show-item--bold {
   font-weight: 500;
   flex-grow: 1;
-}
-@media (min-width: 768px) {
-  .shows .show-item__label {
-    display: flex;
-  }
 }
 .shows .show-item--hidden {
   text-transform: uppercase;

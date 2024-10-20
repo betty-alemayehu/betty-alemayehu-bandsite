@@ -86,10 +86,10 @@ function createShowsLabel() {
 
   // Create the label container (comment-item)
   const labelDiv = document.createElement("div");
-  labelDiv.classList.add("show-item", "shows__label");
+  labelDiv.classList.add("shows__label", "shows__label--tablet");
 
   // Create and append each label (Date, Venue, Location, Blank)
-  const labels = ["Date", "Venue", "Location", ""];
+  const labels = ["Date", "Venue", "Location", " "];
   labels.forEach((labelText) => {
     const labelEl = document.createElement("p");
     labelEl.textContent = labelText;

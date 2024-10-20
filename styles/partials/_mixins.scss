@@ -21,10 +21,12 @@
 
   @include tablet {
     padding: 0 $spacing-unit * 8;
+    padding-bottom: $spacing-unit * 2;
   }
 
   @include desktop {
     padding: 0 $spacing-unit * 10;
+    padding-bottom: $spacing-unit * 2;
   }
 }
 /* Custom Font Face */
@@ -69,10 +71,12 @@
   font-size: 1.75rem;
   line-height: 2rem;
   font-weight: $font-weight-demi;
+  padding: 1.5rem 0;
 
   @include tablet {
     font-size: 3.75rem;
-    line-height: 2.75rem;
+    line-height: 4.75rem;
+    padding: 3rem 0;
   }
 }
 
@@ -98,13 +102,13 @@
   line-height: 2rem;
   font-weight: $font-weight-regular;
   padding-top: 1.5rem;
-  padding-bottom: 1rem;
+  // padding-bottom: 1rem;
 
   @include tablet {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     line-height: 2rem;
     padding-top: 3rem;
-    padding-bottom: 2.25rem;
+    // padding-bottom: 2.25rem;
   }
 }
 
@@ -142,7 +146,7 @@
 @mixin bodyCopy {
   font-size: 1.15rem;
   line-height: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
 
   @include tablet {
     font-size: 1.25rem;
@@ -152,9 +156,8 @@
 
 // Footer copy in p tags
 @mixin footerCopy {
-  font-size: 0.8125rem;
-  line-height: 1.125rem;
-  padding-bottom: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 
   @include tablet {
     font-size: 0.875rem;

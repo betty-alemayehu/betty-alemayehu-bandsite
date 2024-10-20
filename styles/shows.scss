@@ -2,29 +2,49 @@
 @use "./partials/mixins" as *;
 @use "./partials/variables" as *;
 
-//cover/hero section, unique parts of shows page: title and iframe
-.cover {
-  min-height: 60vh;
-
-  // &__album-name {
-  //   // font-weight: ;
-  // }
-  &__title {
-    display: flex;
-    flex-direction: column;
-  }
-  &_iframe {
-    z-index: 2;
-    width: 100%;
-  }
-}
-
 //Shows section
 .shows {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  width: 100%;
   @include devicePadding;
+  &__label--tablet {
+    display: none;
+
+    @include tablet {
+      display: flex;
+    }
+  }
+  &__label--tablet {
+    padding-top: 0;
+    text-transform: uppercase;
+    color: $silver;
+    display: none;
+    font-weight: $font-weight-demi;
+    flex-grow: 1;
+
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      // Equal width setup for children
+      & > * {
+        flex-grow: 1;
+        flex-basis: 25%; // Each child takes 25% of the total width
+        text-align: left;
+      }
+
+      // Adjust styles for paragraphs within this block
+      p {
+        flex-grow: 1;
+        margin: 0;
+        padding-top: 0;
+      }
+    }
+  }
 
   .show-item {
     border-bottom: 1px solid $mercury;
@@ -57,23 +77,20 @@
         text-align: left;
       }
     }
-
+    h4 {
+      padding-top: $spacing-unit * 2;
+    }
     p {
       flex-grow: 1;
       margin: 0;
+      padding-top: 0;
     }
 
     &--bold {
       font-weight: $font-weight-demi;
       flex-grow: 1;
     }
-    &__label {
-      // display: none;
 
-      @include tablet {
-        display: flex;
-      }
-    }
     // Hide labels in tablet view
     &--hidden {
       text-transform: uppercase;
