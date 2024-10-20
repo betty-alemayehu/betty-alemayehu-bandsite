@@ -63,13 +63,13 @@
             alt="The Bees Knees band playing at concert"
           />
           <blockquote class="biography__blockquote">
-            <h3 class="biography__blockquote-copy">
+            <h5 class="biography__blockquote-copy">
               “We push each other to be the best. It’s not uncommon for one of
               us to say ‘this needs to be better, back to the drawing board.’”
-            </h3>
-            <p class="biography__blockquote-footer">
+            </h5>
+            <h5 class="biography__blockquote-footer">
               - Lead vocalist of the Bees Knees
-            </p>
+            </h5>
           </blockquote>
           <h3 class="biography__sub-header">The Bees Knees</h3>
           <div class="biography__bodytext">
@@ -171,6 +171,7 @@
               <div class="form__name">
                 <label for="name">NAME</label>
                 <input
+                  class="form__field error"
                   required
                   type="text"
                   id="name"
@@ -181,10 +182,11 @@
               <div class="form__comment">
                 <label for="comment">COMMENT</label>
                 <textarea
+                  class="form__field error"
                   required
                   name="comment"
                   id="comment"
-                  rows="5"
+                  rows="4"
                   placeholder="Add a new comment"
                 ></textarea>
               </div>

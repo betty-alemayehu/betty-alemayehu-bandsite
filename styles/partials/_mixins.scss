@@ -17,6 +17,7 @@
 //Padding Mixin
 @mixin devicePadding {
   padding: 0 $spacing-unit * 2;
+  padding-bottom: $spacing-unit * 2;
 
   @include tablet {
     padding: 0 $spacing-unit * 8;
@@ -48,123 +49,115 @@
   font-style: normal;
 }
 
-// //Font mixins that include family, weight, and style
-// @mixin font-regular {
-//   font-family: $font-primary;
-//   font-weight: $font-weight-regular;
-//   font-style: normal;
-// }
+//Font styling across device sizes
 
-// @mixin font-demi {
-//   font-family: $font-primary;
-//   font-weight: $font-weight-demi;
-//   font-style: normal;
-// }
+// Nav bar text styling
+@mixin nav-barPage {
+  font-size: 1.25rem;
+  line-height: 2rem;
 
-// @mixin font-bold {
-//   font-family: $font-primary;
-//   font-weight: $font-weight-bold;
-//   font-style: normal;
-// }
+  @include tablet {
+    font-size: 0.875rem;
+    line-height: 2.375rem;
+  }
+}
 
-// //Font styling across device sizes
+// Type Kit Mixins
 
-// // Nav bar text styling
-// @mixin nav-barPage {
-//   font-size: 1.25rem;
-//   line-height: 2rem;
+// h1 page header
+@mixin pageHeader {
+  font-size: 1.75rem;
+  line-height: 2rem;
+  font-weight: $font-weight-demi;
 
-//   @include tablet {
-//     font-size: 0.875rem;
-//     line-height: 1.375rem;
-//   }
+  @include tablet {
+    font-size: 3.75rem;
+    line-height: 2.75rem;
+  }
+}
 
-//   @include desktop {
-//     font-size: 0.875rem;
-//     line-height: 1.375rem;
-//   }
-// }
+// h2 section headers
+@mixin sectionHeader {
+  font-size: 1.75rem;
+  line-height: 2rem;
+  font-weight: $font-weight-demi;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
 
-// // Type Kit Mixins
+  @include tablet {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    padding-top: 3rem;
+    padding-bottom: 2.25rem;
+  }
+}
 
-// // h1 page header
-// @mixin pageHeader {
-//   font-size: 1.75rem;
-//   line-height: 2rem;
-//   font-family: $font-demi;
+// h3 subheaders
+@mixin subHeader {
+  font-size: 1.25rem;
+  line-height: 2rem;
+  font-weight: $font-weight-regular;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
 
-//   @include largeDevice {
-//     font-size: 3.75rem;
-//     line-height: 2.75rem;
-//   }
-// }
+  @include tablet {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 2.25rem;
+  }
+}
 
-// // h2 section headers
-// @mixin sectionHeader {
-//   font-size: 1.75rem;
-//   line-height: 2rem;
-//   font-family: $font-demi;
-//   padding-top: 1.5rem;
-//   padding-bottom: 1rem;
+// h4 Labels & Buttons
+@mixin labelsAndButtons {
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  font-weight: $font-weight-demi;
+  text-transform: uppercase;
+  color: $silver;
 
-//   @include largeDevice {
-//     font-size: 2.25rem;
-//     line-height: 2.75rem;
-//     padding-top: 3rem;
-//     padding-bottom: 2.25rem;
-//   }
-// }
+  @include tablet {
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+  }
+}
 
-// // h3 subheaders
-// @mixin subHeader {
-//   font-size: 1.25rem;
-//   line-height: 2rem;
-//   font-family: $font-demi;
-//   padding-top: 1.5rem;
-//   padding-bottom: 1rem;
+// h5 quotes
+@mixin quotes {
+  font-size: 1.2rem;
+  line-height: 2rem;
+  font-weight: $font-weight-demi;
+  // padding-top: 1.5rem;
+  // padding-bottom: 1rem;
 
-//   @include largeDevice {
-//     font-size: 1.5rem;
-//     line-height: 2rem;
-//     padding-top: 3rem;
-//     padding-bottom: 2.25rem;
-//   }
-// }
+  @include tablet {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    padding-top: 3rem;
+    // padding-bottom: 2.25rem;
+  }
+}
 
-// // Body copy in p tags
-// @mixin bodyCopy {
-//   font-size: 1.05rem;
-//   line-height: 1.5rem;
-//   font-family: $font-primary;
-//   padding-bottom: 2rem;
+// Body copy in p tags
+@mixin bodyCopy {
+  font-size: 1.15rem;
+  line-height: 1.5rem;
+  padding-bottom: 1.5rem;
 
-//   @include largeDevice {
-//     font-size: 1.25rem;
-//     line-height: 1.75rem;
-//   }
-// }
+  @include tablet {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
 
-// // Footer copy in p tags
-// @mixin footerCopy {
-//   font-size: 0.8125rem;
-//   line-height: 1.125rem;
-//   font-family: $font-primary;
-//   padding-bottom: 1rem;
+// Footer copy in p tags
+@mixin footerCopy {
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  padding-bottom: 1rem;
 
-//   @include largeDevice {
-//     font-size: 0.875rem;
-//     line-height: 1.25rem;
-//   }
-// }
-
-// // h4 Labels & Buttons
-// @mixin labelsAndButtons {
-//   font-size: 0.75rem;
-//   line-height: 1.25rem;
-//   font-family: $font-demi;
-
-//   @include largeDevice {
-//     font-size: 1.25rem;
-//     line-height: 1.25rem;
-//   }
-// }
+  @include tablet {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}

@@ -65,7 +65,8 @@ function createComment(comment) {
   const headerDiv = document.createElement("div");
   headerDiv.classList.add("comment-item__header");
 
-  const nameEl = document.createElement("h4");
+  const nameEl = document.createElement("p");
+  nameEl.classList.add("comment-item__subheader");
   nameEl.textContent = comment.name;
 
   const dateEl = document.createElement("span");

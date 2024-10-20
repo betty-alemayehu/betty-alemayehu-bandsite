@@ -16,9 +16,10 @@
 
   &__image {
     width: 100%;
-    min-height: 45vh;
-    max-height: 52.5vh;
+    min-height: 25vh;
+    max-height: 25vh;
     object-fit: cover;
+    padding-bottom: 1.5rem;
   }
 
   &__bodytext {
@@ -74,6 +75,7 @@
   display: flex;
   flex-direction: column;
   @include devicePadding;
+
   &__inputbox {
     display: flex;
     flex-grow: 1;
@@ -84,17 +86,47 @@
     flex-direction: row;
     gap: $spacing-unit * 2;
     border-bottom: 0.125rem solid $mercury;
+    padding-bottom: $spacing-unit * 2;
 
     .form {
       display: flex;
       flex-direction: column;
       flex-grow: 1;
       width: 100%;
+      gap: $spacing-unit * 2;
 
       &__name,
       &__comment {
         display: flex;
         flex-direction: column;
+      }
+
+      &__field {
+        border: 0.0625rem solid $mercury;
+        background-color: $alabaster;
+        padding: 12px;
+        border-radius: 4px;
+        width: 100%;
+
+        &:focus {
+          border-color: $bandSite-Black;
+          outline: none;
+        }
+
+        &:valid:not(:placeholder-shown):not(:focus) {
+          border-color: $mercury;
+        }
+
+        //error state coloring - please advise
+        // &:invalid:focus:not(:placeholder-shown) {
+        //   border-color: $error-state;
+        // }
+
+        //placeholder text formatting
+        &::placeholder {
+          color: $bandSite-Black;
+          opacity: 1;
+        }
       }
     }
   }
@@ -133,9 +165,16 @@
       flex-direction: row;
       gap: $spacing-unit * 2;
       border-bottom: 0.125rem solid $mercury;
-
       width: 100%;
+      padding-top: $spacing-unit * 3;
 
+      &__subheader {
+        font-weight: $font-weight-demi;
+      }
+
+      &__date {
+        color: $silver;
+      }
       &__content {
         flex-grow: 1;
         width: 100%;
