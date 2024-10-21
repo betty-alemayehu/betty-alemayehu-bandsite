@@ -28,7 +28,8 @@ h3 {
 }
 
 h4,
-label {
+label,
+.show-item__label {
   @include labelsAndButtons;
 }
 
@@ -36,7 +37,8 @@ h5 {
   @include quotes;
 }
 
-body p {
+body p,
+.show-item p {
   @include bodyCopy;
 }
 
@@ -44,6 +46,9 @@ footer p {
   @include footerCopy;
 }
 
+body {
+  color: $bandSite-Black;
+}
 //logo restrictions
 .site__logo {
   max-width: 7.5rem;
@@ -61,14 +66,14 @@ button {
   align-items: center;
   height: 2.5rem;
   width: 100%;
-  border-radius: 0.25rem;
+  border-radius: 0.4rem;
   text-transform: uppercase;
   margin: $spacing-unit * 2 0;
 
   cursor: pointer;
   @include tablet {
-    min-width: 9.375rem;
     padding: 0 2rem;
+    width: fit-content;
   }
 
   &:hover {
@@ -84,12 +89,16 @@ button {
   justify-content: center;
   color: $white;
   background-color: $bandSite-Black;
+
   @include tablet {
     flex-direction: row;
     justify-content: left;
+    gap: $spacing-unit * 8;
     padding: 0 $spacing-unit * 8;
+    height: $spacing-unit * 10;
   }
   @include desktop {
+    gap: $spacing-unit * 10;
     padding: 0 $spacing-unit * 10;
   }
 
@@ -97,13 +106,26 @@ button {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    height: $spacing-unit * 6; /* Set logo height */
+    height: $spacing-unit * 6;
+    @include tablet {
+      align-items: center;
+      height: 100%;
+    }
   }
 
   &__pages {
     display: flex;
     flex-direction: row;
-    justify-content: center; /* Center the navigation pages */
+    justify-content: center;
+
+    @include tablet {
+      gap: $spacing-unit * 8;
+      align-items: center;
+      height: 100%;
+    }
+    @include desktop {
+      gap: $spacing-unit * 6;
+    }
   }
 
   &__page {
@@ -113,6 +135,9 @@ button {
     flex-grow: 1;
     text-align: center;
     height: $spacing-unit * 6;
+    @include tablet {
+      height: 100%;
+    }
   }
 
   &__label {
@@ -138,9 +163,6 @@ button {
   }
 }
 
-body {
-  color: $bandSite-Black;
-}
 //cover/hero section
 .cover {
   position: relative;
@@ -150,6 +172,9 @@ body {
   min-height: 50vh;
   overflow: hidden;
   color: $white;
+  @include desktop {
+    min-height: 70vh;
+  }
 
   &__page-header {
     position: absolute;
@@ -166,6 +191,16 @@ body {
     // gap: $spacing-unit * 2;
 
     @include devicePadding;
+  }
+  &__page-header-content {
+    @include desktop {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      // align-content: baseline;
+      align-items: center;
+    }
   }
 
   &__image {
@@ -204,14 +239,12 @@ body {
   &__iframe {
     z-index: 2;
     width: 100%;
-    @include tablet {
-      width: auto;
-      max-width: 60%;
 
-      @include desktop {
-        width: auto;
-        max-width: 40%;
-      }
+    @include tablet {
+      width: 60%;
+    }
+    @include desktop {
+      width: 50%;
     }
   }
 }
@@ -228,19 +261,38 @@ body {
   max-height: 100vh;
   @include devicePadding;
   position: relative;
-
+  gap: $spacing-unit * 2;
   &__contact {
     display: flex;
     flex-direction: column;
     // gap: $spacing-unit * 2;
+    @include tablet {
+      flex-direction: row;
+      align-items: baseline;
+      gap: $spacing-unit * 4;
+      @include desktop {
+        gap: $spacing-unit * 5;
+      }
+    }
   }
 
   &__contact-group {
     display: flex;
     flex-direction: column;
-    // gap: $spacing-unit * 2;
     flex-grow: 1;
     width: 100%;
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      gap: $spacing-unit * 2;
+
+      @include desktop {
+        justify-content: left;
+        gap: $spacing-unit * 8;
+      }
+    }
   }
   &__social {
     display: flex;
@@ -272,14 +324,14 @@ body {
     }
     @include tablet {
       position: absolute;
-      top: 0;
+      top: $spacing-unit * 2;
       right: $spacing-unit * 8;
       z-index: 1;
     }
 
     @include desktop {
       position: absolute;
-      top: 0;
+      top: $spacing-unit * 2;
       right: $spacing-unit * 12;
       z-index: 1;
     }
@@ -291,185 +343,12 @@ body {
 
   h3 {
     font-weight: $font-weight-demi;
+    @include tablet {
+      font-size: 1rem;
+      padding-top: 0;
+    }
+  }
+  &__text-copyright {
+    padding-bottom: $spacing-unit * 2;
   }
 }
-
-//Previous footer
-// .footer {
-//   width: 100%;
-//   color: $white;
-//   background-color: $bandSite-Black;
-//   position: relative;
-//   @include devicePadding;
-
-//   &__contact {
-//     display: flex;
-//     flex-direction: column;
-
-//     @include tablet {
-//       flex-direction: row;
-//       align-items: baseline;
-//     }
-
-//     &__social {
-//       display: flex;
-//       flex-direction: row;
-//       gap: $spacing-unit;
-//     }
-//   }
-
-//   &__logo {
-//     &__image {
-//       width: 7.5rem;
-//       height: auto;
-
-//       @include mobile {
-//         width: 30vw;
-//         height: auto;
-//       }
-//     }
-
-//     @include tablet {
-//       position: absolute;
-//       top: $spacing-unit * 12;
-//       right: $spacing-unit * 8;
-//     }
-
-//     @include desktop {
-//       position: absolute;
-//       top: $spacing-unit * 14;
-//       right: $spacing-unit * 10;
-//     }
-//   }
-
-//   &__social-icon {
-//     height: 1.5rem;
-//     width: auto;
-//     padding-right: $spacing-unit * 4;
-//   }
-
-//   &__contact-group {
-//     @include tablet {
-//       display: flex;
-//       flex-direction: row;
-//       flex-wrap: nowrap;
-//       justify-content: space-between;
-//       gap: $spacing-unit * 2;
-
-//       @include desktop {
-//         justify-content: left;
-//         gap: $spacing-unit * 8;
-//       }
-//     }
-//   }
-
-//   &__text-copyright {
-//     padding-top: $spacing-unit * 2;
-//     padding-bottom: $spacing-unit * 2;
-
-//     @include tablet {
-//       padding-top: $spacing-unit * 8;
-//     }
-//   }
-// }
-
-// .nav-bar {
-//   width: 100%;
-//   background-color: $primary-black;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   color: $white;
-//   padding-top: $spacing-unit * 2;
-
-//   @include tablet {
-//     flex-direction: row;
-//     justify-content: left;
-//     padding-left: $spacing-unit * 8;
-//   }
-
-//   @include desktop {
-//     flex-direction: row;
-//     justify-content: left;
-//     padding-left: $spacing-unit * 10;
-//   }
-
-//   &__logo {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-
-//     .logo__image {
-//       width: 7.5rem;
-//       height: auto;
-
-//       @include mobile {
-//         width: 30vw;
-//         height: auto;
-//         padding: $spacing-unit * 2;
-//       }
-//     }
-//   }
-
-//   &__pages {
-//     display: flex;
-//     width: 100%;
-//     justify-content: center;
-
-//     @include largeDevice {
-//       justify-content: flex-start;
-//       width: auto;
-//     }
-
-//     .nav-bar__page {
-//       display: flex;
-
-//       &--active {
-//         border-bottom: 0.25rem solid white;
-//         padding: 1rem 0;
-//         font-family: $font-bold;
-//         @include mobile {
-//           padding-top: 0;
-//         }
-//       }
-
-//       &--inactive {
-//         border-bottom: 0.25rem solid $primary-black;
-//         padding: 1rem 0;
-//         @include mobile {
-//           padding-top: 0;
-//         }
-//       }
-
-//       &--active,
-//       &--inactive {
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         width: 50vw;
-
-//         @include largeDevice {
-//           width: auto;
-//           margin-left: $spacing-unit * 2;
-//           margin-right: $spacing-unit * 2;
-//         }
-
-//         .page__label {
-//           @include nav-barPage;
-//           text-align: center;
-//           cursor: pointer;
-//           transition: transform 0.2s ease;
-
-//           &:hover {
-//             transform: scale(1.25); // Zoom effect on hover
-//           }
-
-//           &:focus,
-//           &:active {
-//             outline: none;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }

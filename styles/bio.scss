@@ -17,11 +17,25 @@
   &__image {
     width: 100%;
     min-height: 25vh;
-    max-height: 25vh;
+    max-height: 30vh;
     object-fit: cover;
     padding-bottom: 1.5rem;
+    @include desktop {
+      max-height: 60vh;
+    }
+  }
+  &__blockquote {
+    @include desktop {
+      max-width: 80%;
+    }
   }
 
+  &__blockquote-footer {
+    @include tablet {
+      font-size: 1rem;
+      padding-top: $spacing-unit * 2;
+    }
+  }
   &__bodytext {
     @include tablet {
       display: flex;
@@ -74,7 +88,14 @@
   display: flex;
   flex-direction: column;
   @include devicePadding;
-
+  &__form {
+    @include tablet {
+      padding: 0 $spacing-unit * 10;
+    }
+    @include desktop {
+      padding: 0 $spacing-unit * 30;
+    }
+  }
   &__inputbox {
     display: flex;
     flex-grow: 1;
@@ -98,6 +119,12 @@
       &__comment {
         display: flex;
         flex-direction: column;
+      }
+
+      &__button {
+        @include tablet {
+          align-self: flex-end;
+        }
       }
 
       &__field {

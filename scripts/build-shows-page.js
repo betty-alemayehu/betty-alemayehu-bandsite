@@ -79,17 +79,17 @@ async function displayShows() {
   });
 }
 
-// Function to create the label row above the shows container
+// Function to create the label row after the h2 heading
 function createShowsLabel() {
   // Find the shows section
-  const showsSection = document.querySelector(".shows");
+  const showsHeader = document.querySelector(".shows__header");
 
-  // Create the label container (comment-item)
+  // Create the label container (div for labels)
   const labelDiv = document.createElement("div");
   labelDiv.classList.add("shows__label", "shows__label--tablet");
 
   // Create and append each label (Date, Venue, Location, Blank)
-  const labels = ["Date", "Venue", "Location", " "];
+  const labels = ["Date", "Venue", "Location", ""];
   labels.forEach((labelText) => {
     const labelEl = document.createElement("p");
     labelEl.textContent = labelText;
@@ -98,8 +98,7 @@ function createShowsLabel() {
   });
 
   // Insert the label row after the h2 heading
-  const showsHeader = document.querySelector(".shows__header");
-  showsSection.insertBefore(labelDiv, showsHeader.nextSibling);
+  showsHeader.parentNode.insertBefore(labelDiv, showsHeader.nextSibling);
 }
 
 // Execute displayShows function when the page loads

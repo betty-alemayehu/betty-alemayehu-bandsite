@@ -119,11 +119,6 @@
   font-weight: $font-weight-demi;
   text-transform: uppercase;
   color: $silver;
-
-  @include tablet {
-    font-size: 1.25rem;
-    line-height: 1.25rem;
-  }
 }
 
 // h5 quotes
@@ -137,7 +132,7 @@
   @include tablet {
     font-size: 1.5rem;
     line-height: 2rem;
-    padding-top: 3rem;
+    // padding-top: 3rem;
     // padding-bottom: 2.25rem;
   }
 }
@@ -147,11 +142,6 @@
   font-size: 1.15rem;
   line-height: 1.5rem;
   padding-top: 1.5rem;
-
-  @include tablet {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
 }
 
 // Footer copy in p tags
