@@ -22,14 +22,12 @@
     }
   }
 
-  // Label width adjustment for desktop
   &__label {
     @include desktop {
       align-self: flex-end;
     }
   }
 
-  // Show container width for desktop
   #showContainer {
     @include desktop {
       width: 75%;
@@ -90,7 +88,6 @@
       }
     }
 
-    // Tablet styles
     @include tablet {
       flex-direction: row;
       justify-content: space-between;
@@ -101,6 +98,17 @@
         flex-grow: 1;
         flex-basis: 25%; // Each child takes 25% of the total width
         text-align: left;
+      }
+
+      &__label,
+      &__date,
+      &__venue,
+      &__location {
+        text-wrap: nowrap;
+      }
+
+      button {
+        flex-basis: none;
       }
     }
 

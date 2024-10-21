@@ -1,3 +1,4 @@
+//get BandSiteAPI class from band-site-api.js
 import BandSiteApi from "../scripts/band-site-api.js";
 
 const apiKey = "44993b1e-d67d-40a6-b841-df26de004af8";
@@ -6,7 +7,7 @@ const bandApi = new BandSiteApi(apiKey);
 // Function to render the shows on the page
 async function displayShows() {
   const container = document.getElementById("showContainer");
-  let selectedShow = null; // Keep track of the currently selected show (for "selected" state)
+  let selectedShow = null; // Keep track of the currently selected show (for "selected" state styling in scss)
 
   // Create and append the shows label row
   createShowsLabel();
@@ -57,7 +58,7 @@ async function displayShows() {
     locationEl.classList.add("show-item__location");
     showDiv.appendChild(locationEl);
 
-    // Create and append the "Buy Tickets" button
+    // Create and append "Buy Tickets" button
     const buttonEl = document.createElement("button");
     buttonEl.textContent = "Buy Tickets";
     buttonEl.classList.add("show-item__button");
@@ -79,7 +80,7 @@ async function displayShows() {
   });
 }
 
-// Function to create the label row after the h2 heading
+// Create the label row after the h2 heading using a function
 function createShowsLabel() {
   // Find the shows section
   const showsHeader = document.querySelector(".shows__header");
@@ -101,5 +102,5 @@ function createShowsLabel() {
   showsHeader.parentNode.insertBefore(labelDiv, showsHeader.nextSibling);
 }
 
-// Execute displayShows function when the page loads
+// Use displayShows function when the page loads
 window.addEventListener("load", displayShows);

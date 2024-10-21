@@ -1,14 +1,16 @@
 // Bandsite API integration
 
+//setup variable for apiKey
 const apiKey = "44993b1e-d67d-40a6-b841-df26de004af8";
 
+//setup class for extensions in index and shows pages
 class BandSiteApi {
   constructor(apiKey) {
     this.apiKey = apiKey;
     this.apiURL = "https://unit-2-project-api-25c1595833b2.herokuapp.com";
   }
 
-  // Post a new comment to the API
+  // Post comments to  API
   async postComment(comment) {
     try {
       const response = await axios.post(
@@ -21,7 +23,7 @@ class BandSiteApi {
     }
   }
 
-  // Get comments from the API
+  // Get comments from API
   async getComments() {
     try {
       const response = await axios.get(
@@ -37,7 +39,7 @@ class BandSiteApi {
     }
   }
 
-  // Get show dates from the API
+  // Get show dates from API
   async getShows() {
     try {
       const response = await axios.get(
@@ -50,5 +52,5 @@ class BandSiteApi {
   }
 }
 
-// Export BandSiteApi for use in other scripts
+// Export BandSiteApi for use in other scripts (index and shows)
 export default BandSiteApi;

@@ -9,9 +9,10 @@ document
   .addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    // Capture form inputs using event.target
+    // Capture form inputs using event.target (updated from get element ID)
     const name = event.target.name.value.trim();
     const comment = event.target.comment.value.trim();
+    //note that the date is not needed, this auto-generates when submitting + attempts to add will result in 400 error
 
     // Create a new comment object
     const newComment = {
@@ -30,26 +31,26 @@ document
     displaySubmissions();
   });
 
-// Function to display the comments on the page
+// Display the comments on the page
 async function displaySubmissions() {
   const formArray = document.getElementById("formArray");
   formArray.innerHTML = ""; // Clear existing content
 
-  // Fetch comments from the API
+  // Fetch/get comments from the API
   const submissions = await bandApi.getComments();
 
-  // Loop through each comment and render it on the page
+  // Loop through each comment and display it on the page
   submissions.forEach((submission) => {
     createComment(submission);
   });
 }
 
-// Function to create and display a comment
+// Create and display a comment
 function createComment(comment) {
   const commentDiv = document.createElement("div");
   commentDiv.classList.add("comment-item");
 
-  // Placeholder avatar container (wrapper)
+  // Placeholder avatar container (wrapper) *shout out to Nadia for helping me out with this*!
   const avatarWrapper = document.createElement("div");
   avatarWrapper.classList.add("comments__avatar--placeholder");
 

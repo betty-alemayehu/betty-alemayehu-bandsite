@@ -17,10 +17,10 @@
   &__image {
     width: 100%;
     min-height: 25vh;
-    max-height: 30vh;
+    max-height: 35vh;
     object-fit: cover;
     padding-bottom: 1.5rem;
-    @include desktop {
+    @include tablet {
       max-height: 60vh;
     }
   }
@@ -69,6 +69,7 @@
     max-width: 100%;
     height: auto;
 
+    //image hover effect
     filter: grayscale(100%);
     transition: filter 0.25s ease;
 
@@ -143,7 +144,7 @@
           border-color: $mercury;
         }
 
-        //error state coloring - please advise
+        ////error state coloring - please advise, difficulty applying to specificed rules (e.g. invalid/empty field but placeholder text not present)
         // &:invalid:focus:not(:placeholder-shown) {
         //   border-color: $error-state;
         // }
@@ -157,7 +158,7 @@
       }
     }
   }
-
+  //avatar styling
   &__avatar {
     border-radius: 50%;
     min-width: 2.25rem;
@@ -185,8 +186,29 @@
       border-radius: 50%;
       background-color: $mercury;
     }
-  }
+    @include tablet {
+      &__avatar {
+        border-radius: 50%;
+        min-width: 3rem;
+        max-width: 3rem;
+        min-height: 3rem;
+        max-height: 3rem;
+        object-fit: cover;
 
+        &--placeholder {
+          min-width: 3rem;
+          max-width: 3rem;
+          min-height: 3rem;
+          max-height: 3rem;
+          position: relative;
+          width: auto;
+          height: auto;
+          padding-top: $spacing-unit * 3;
+        }
+      }
+    }
+  }
+  //API array styles
   &__array {
     .comment-item {
       display: flex;

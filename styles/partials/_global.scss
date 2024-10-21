@@ -9,65 +9,70 @@
   font-family: $font-primary;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-  font-weight: inherit;
-}
-
-h1 {
-  @include pageHeader;
-}
-
-h2 {
-  @include sectionHeader;
-}
-
-h3 {
-  @include subHeader;
-}
-
-h4,
-label,
-.show-item__label {
-  @include labelsAndButtons;
-}
-
-h5 {
-  @include quotes;
-}
-
-body p,
-.show-item p {
-  @include bodyCopy;
-}
-
-footer p {
-  @include footerCopy;
-}
-
+//text styling and leverage of mixins for consistent styling across devices
 body {
   color: $bandSite-Black;
+  a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: inherit;
+  }
+
+  h1 {
+    @include pageHeader;
+  }
+
+  h2 {
+    @include sectionHeader;
+  }
+
+  h3 {
+    @include subHeader;
+  }
+
+  h4,
+  label,
+  .show-item__label {
+    @include labelsAndButtons;
+  }
+
+  h5 {
+    @include quotes;
+  }
+
+  p,
+  .show-item p {
+    @include bodyCopy;
+  }
+
+  footer p {
+    @include footerCopy;
+  }
 }
-//logo restrictions
+
+//logo restrictions re style guide
 .site__logo {
   max-width: 7.5rem;
   max-height: 1.25rem;
 }
 
-//button
+//button guidelines
 button {
   background-color: $bandSite-Black;
   color: $white;
   font-weight: $font-weight-demi;
   font-size: 1rem;
+  text-transform: uppercase;
+
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: nowrap;
+  text-wrap: nowrap;
+
   height: 2.5rem;
   width: 100%;
   border-radius: 0.4rem;
-  text-transform: uppercase;
   margin: $spacing-unit * 2 0;
 
   cursor: pointer;
@@ -102,6 +107,7 @@ button {
     padding: 0 $spacing-unit * 10;
   }
 
+  //logo location(s) across devices
   &__logo {
     display: flex;
     justify-content: center;
@@ -113,6 +119,7 @@ button {
     }
   }
 
+  //tab/page styling
   &__pages {
     display: flex;
     flex-direction: row;
@@ -140,6 +147,7 @@ button {
     }
   }
 
+  //active vs inactive tab styling
   &__label {
     display: flex;
     align-items: center;
@@ -188,7 +196,6 @@ button {
     width: 100%;
     height: 100%;
     text-align: left;
-    // gap: $spacing-unit * 2;
 
     @include devicePadding;
   }
@@ -198,7 +205,6 @@ button {
       flex-direction: row;
       flex-wrap: nowrap;
       justify-content: space-between;
-      // align-content: baseline;
       align-items: center;
     }
   }
@@ -217,7 +223,7 @@ button {
       width: 100%;
       height: 100%;
     }
-
+    //image overlay
     &::after {
       content: "";
       position: absolute;
@@ -225,13 +231,13 @@ button {
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: #323232;
+      background-color: $bandSite-Black;
       opacity: 0.5;
       z-index: 1;
     }
   }
-  //cover/hero section, unique parts of shows page: title and iframe
 
+  //cover/hero section, unique parts of shows page: title and iframe
   &__title {
     display: flex;
     flex-direction: column;
@@ -265,7 +271,6 @@ button {
   &__contact {
     display: flex;
     flex-direction: column;
-    // gap: $spacing-unit * 2;
     @include tablet {
       flex-direction: row;
       align-items: baseline;
@@ -308,7 +313,6 @@ button {
   &__contact-card {
     display: flex;
     flex-direction: column;
-    // gap: $spacing-unit * 2;
   }
 
   &__sub-header {
@@ -336,7 +340,7 @@ button {
       z-index: 1;
     }
   }
-
+  //text styling specific to footer
   a {
     padding-top: $spacing-unit * 2;
   }
